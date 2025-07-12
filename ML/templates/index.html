@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopper Purchase Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Will the Shopper Make a Purchase?</h2>
+    <form action="/predict" method="POST">
+        <label>Administrative</label>
+        <input type="text" name="feature1" placeholder="e.g. 2" required>
+
+        <label>Administrative_Duration</label>
+        <input type="text" name="feature2" placeholder="e.g. 60.0" required>
+
+        <label>Informational</label>
+        <input type="text" name="feature3" placeholder="e.g. 0" required>
+
+        <label>Informational_Duration</label>
+        <input type="text" name="feature4" placeholder="e.g. 0.0" required>
+
+        <label>ProductRelated</label>
+        <input type="text" name="feature5" placeholder="e.g. 20" required>
+
+        <label>ProductRelated_Duration</label>
+        <input type="text" name="feature6" placeholder="e.g. 600.0" required>
+
+        <label>BounceRates</label>
+        <input type="text" name="feature7" placeholder="e.g. 0.02" required>
+
+        <label>ExitRates</label>
+        <input type="text" name="feature8" placeholder="e.g. 0.05" required>
+
+        <label>PageValues</label>
+        <input type="text" name="feature9" placeholder="e.g. 10.0" required>
+
+        <label>SpecialDay</label>
+        <input type="text" name="feature10" placeholder="e.g. 0.0" required>
+
+        <label>Month (1 = Jan, ..., 12 = Dec)</label>
+        <input type="text" name="feature11" placeholder="e.g. 6" required>
+
+        <label>OperatingSystems</label>
+        <input type="text" name="feature12" placeholder="e.g. 2" required>
+
+        <label>Browser</label>
+        <input type="text" name="feature13" placeholder="e.g. 1" required>
+
+        <label>Region</label>
+        <input type="text" name="feature14" placeholder="e.g. 3" required>
+
+        <label>TrafficType</label>
+        <input type="text" name="feature15" placeholder="e.g. 2" required>
+
+        <label>VisitorType (1 = Returning Visitor, 0 = New/Other)</label>
+        <input type="text" name="feature16" placeholder="e.g. 1" required>
+
+        <label>Weekend (1 = Yes, 0 = No)</label>
+        <input type="text" name="feature17" placeholder="e.g. 0" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
